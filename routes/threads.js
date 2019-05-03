@@ -44,7 +44,7 @@ router.get("/", checkAuth, (req, res, next) => {
     .then(threads => {
       const response = {
         count: threads.length,
-        products: threads.map(thread => {
+        threads: threads.map(thread => {
           return {
 						_id: thread._id,
             title: thread.title,
