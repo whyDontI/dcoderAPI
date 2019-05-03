@@ -17,12 +17,12 @@ router.get("/:threadId", checkAuth, (req, res, next) => {
     .exec()
     .then(thread => {
       console.log("From database", thread);
-      if (thread) {
+      if(thread) {
         res.status(200).json({
 						thread: thread,
             request: {
                 type: 'GET',
-                url: 'http://localhost:3000/products'
+                url: '/thread/'
             }
         });
       } else {
@@ -53,18 +53,18 @@ router.get("/", checkAuth, (req, res, next) => {
 						date: thread.date,
             request: {
               type: "GET",
-              url: "http://localhost:3000/products/" + thread._id
+              url: "/thread/" + thread._id
             }
           };
         })
       };
-      //   if (threads.length >= 0) {
+        if (threads.length >= 0) {
 			res.status(200).json(response);
-      //   } else {
-      //       res.status(404).json({
-      //           message: 'No entries found'
-      //       });
-      //   }
+        } else {
+            res.status(404).json({
+                message: 'No entries found'
+            });
+        }
     })
     .catch(err => {
       console.log(err);
