@@ -11,12 +11,12 @@ router.post('/register', (req, res) => {
 
 	//Check required
 	if(!email || !password || !password2){
-		errors.push({ msg: "Please fill in all the fields" });
+		errors.push({ message: "Please fill in all the fields" });
 	}
 
 	// Password match
 	if(password !== password2 ){
-		errors.push({ msg: "Passwords do not match" })
+		errors.push({ message: "Passwords do not match" })
 	}
 
 	if(errors.length > 0){
