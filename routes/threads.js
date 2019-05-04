@@ -39,7 +39,8 @@ const checkAuth = require('../middleware/check-auth');
 
 router.get("/:email", checkAuth, (req, res, next) => {
   Thread.find()
-    .where(Thread.email = req.params.email)
+    .where('email')
+    .equals(req.params.email)
     .select()
     .exec()
     .then(threads => {
