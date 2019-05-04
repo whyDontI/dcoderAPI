@@ -21,7 +21,10 @@ router.post('/register', (req, res) => {
 
 	if(errors.length > 0){
 		console.log(req.body);
-		res.send(errors);
+		// res.send(errors);
+		res.status(200).json({
+			message: errors
+		});
 	} else {
 		// No Errors, good to go
 
