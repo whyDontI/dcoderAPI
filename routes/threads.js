@@ -9,33 +9,33 @@ const jwt = require('jsonwebtoken');
 
 const checkAuth = require('../middleware/check-auth');
 
-router.get("/:threadId", checkAuth, (req, res, next) => {
-	const id = req.params.threadId;
-	console.log(id);
-  Thread.findById(id)
-    .select()
-    .exec()
-    .then(thread => {
-      console.log("From database", thread);
-      if(thread) {
-        res.status(200).json({
-						thread: thread,
-            request: {
-                type: 'GET',
-                url: '/thread/'
-            }
-        });
-      } else {
-        res
-          .status(404)
-          .json({ message: "No valid entry found for provided ID" });
-      }
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ error: err });
-    });
-});
+// router.get("/:threadId", checkAuth, (req, res, next) => {
+// 	const id = req.params.threadId;
+// 	console.log(id);
+//   Thread.findById(id)
+//     .select()
+//     .exec()
+//     .then(thread => {
+//       console.log("From database", thread);
+//       if(thread) {
+//         res.status(200).json({
+// 						thread: thread,
+//             request: {
+//                 type: 'GET',
+//                 url: '/thread/'
+//             }
+//         });
+//       } else {
+//         res
+//           .status(404)
+//           .json({ message: "No valid entry found for provided ID" });
+//       }
+//     })
+//     .catch(err => {
+//       console.log(err);
+//       res.status(500).json({ error: err });
+//     });
+// });
 
 router.get("/:email", checkAuth, (req, res, next) => {
   Thread.find()
