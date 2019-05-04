@@ -81,7 +81,7 @@ router.post('/', checkAuth, (req, res, next) => {
 		title: req.body.title,
 		description: req.body.description,
 		tags: req.body.tags,
-		username: req.body.email,
+		email: req.body.email,
 		date: Date.now()
 	});
 
@@ -96,7 +96,7 @@ router.post('/', checkAuth, (req, res, next) => {
 					title: result.title,
 					description: result.description,
 					tags: result.tags,
-					username: result.email,
+					email: result.email,
 					date: result.date
 				}
 			})
