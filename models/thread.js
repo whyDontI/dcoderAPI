@@ -4,7 +4,7 @@ const ThreadSchema = new mongoose.Schema({
 	title: String,
 	description: String,
 	tags: mongoose.Schema.Types.Mixed,
-	username: mongoose.Schema.Types.ObjectId,
+	username: String,
 	date: {
 		type: Date,
 		default: Date.now()

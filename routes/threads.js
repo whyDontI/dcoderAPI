@@ -37,8 +37,9 @@ router.get("/:threadId", checkAuth, (req, res, next) => {
     });
 });
 
-router.get("/", checkAuth, (req, res, next) => {
+router.get("/:email", checkAuth, (req, res, next) => {
   Thread.find()
+    .where(Thread.email = req.params.email)
     .select()
     .exec()
     .then(threads => {
